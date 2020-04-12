@@ -38,6 +38,7 @@ public class JsonTestController {
 
         ResponseEntity<String> response = restTemplate.exchange(url, HttpMethod.GET, new HttpEntity<>(headers), String.class);
 
+        // 라이브러리 어떤거 임포트 되는지 알고 쓰셈.
         // 비교 START
         JSONObject jsonObject1 = new JSONObject(response);
         log.info("예제1 {}", jsonObject1);
@@ -59,44 +60,6 @@ public class JsonTestController {
 
         return response;
 
-    }
-
-    @GetMapping("/test")
-    public String test() throws JSONException {
-        String jsonString =
-                "{"
-                        +   "\"posts\": ["
-                        +       "{"
-                        +           "\"title\": \"how to get stroage size\","
-                        +           "\"url\": \"https://codechacha.com/ko/get-free-and-total-size-of-volumes-in-android/\","
-                        +           "\"draft\": false"
-                        +       "},"
-                        +       "{"
-                        +           "\"title\": \"Android Q, Scoped Storage\","
-                        +           "\"url\": \"https://codechacha.com/ko/android-q-scoped-storage/\","
-                        +           "\"draft\": false"
-                        +       "},"
-                        +       "{"
-                        +           "\"title\": \"How to parse JSON in android\","
-                        +           "\"url\": \"https://codechacha.com/ko/how-to-parse-json-in-android/\","
-                        +           "\"draft\": true"
-                        +       "}"
-                        +   "]"
-                        +"}";
-
-        JSONObject jObject = new JSONObject(jsonString);
-        // 배열을 가져옵니다.
-        JSONArray jArray = jObject.getJSONArray("posts");
-
-        // 배열의 모든 아이템을 출력합니다.
-        for (int i = 0; i < jArray.length(); i++) {
-            JSONObject obj = jArray.getJSONObject(i);
-            String title = obj.getString("title");
-            System.out.println("title(" + i + "): " + title);
-            System.out.println();
-        }
-
-        return jObject.toString();
     }
 
 }

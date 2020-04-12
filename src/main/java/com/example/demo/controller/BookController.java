@@ -7,11 +7,12 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.client.RestTemplate;
 import java.nio.charset.StandardCharsets;
+import java.util.Map;
 
 @RestController
 public class BookController {
 
-    @GetMapping("book/all")
+    @GetMapping("book/all2")
     public ResponseEntity<String> BookMain() throws Exception {
         RestTemplate restTemplate = new RestTemplate();
         String url = "https://dapi.kakao.com/v3/search/book?target=title&query=미움받을용기";

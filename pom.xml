@@ -68,18 +68,15 @@
                 </exclusion>
             </exclusions>
         </dependency>
+        <!-- 이거 어떻게 추가 한거임 ? -->
+        <!--처음에 저거 코드 복붙하니까 add 라이브러리? 이런거 뜨길래 엔터 쳤던거 같아요-->
+        <!-- https://mvnrepository.com/artifact/org.json/json -->
         <dependency>
-            <groupId>com.vaadin.external.google</groupId>
-            <artifactId>android-json</artifactId>
-            <version>0.0.20131108.vaadin1</version>
-            <scope>compile</scope>
+            <groupId>org.json</groupId>
+            <artifactId>json</artifactId>
+            <version>20160810</version>
         </dependency>
-        <dependency>
-            <groupId>net.minidev</groupId>
-            <artifactId>json-smart</artifactId>
-            <version>2.3</version>
-            <scope>compile</scope>
-        </dependency>
+
     </dependencies>
 
     <build>
