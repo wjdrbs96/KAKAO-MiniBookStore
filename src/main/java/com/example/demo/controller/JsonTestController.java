@@ -10,6 +10,7 @@ import org.springframework.http.HttpMethod;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.client.RestTemplate;
 
@@ -31,7 +32,7 @@ public class JsonTestController {
     @GetMapping("book/all1")
     public List<Book> BookMain() throws Exception {
         RestTemplate restTemplate = new RestTemplate();
-        String url = "https://dapi.kakao.com/v3/search/book?target=title&query=미움받을용기";
+        String url = "https://dapi.kakao.com/v3/search/book?target=title&query=자존감수업";
         String svcKey = "KakaoAK 856ec0be1a62b01007353103f2cbc64d";
 
         HttpHeaders headers = new HttpHeaders();
@@ -57,17 +58,17 @@ public class JsonTestController {
         for (int i = 0; i < 2; i++) {
             JSONObject book = bookList.getJSONObject(i);
             Book bo = new Book(book.getJSONArray("authors").getString(0), book.getString("contents"), book.getString("isbn"), book.getString("publisher"), book.getString("title"),
-                               book.getString("thumbnail"), book.getInt("price"), book.getJSONArray("translators").getString(0));
+                               book.getString("thumbnail"), book.getInt("price"));
             /*String title = book.getString("title");
             System.out.println("title(" + i + "): " + title);*/
             System.out.println(bo.getAuthors());
             System.out.println(bo.getContents());
             System.out.println(bo.getPrice());
-            System.out.println(bo.getTranslators());
             System.out.println();
             list.add(bo);
         }
 
         return list;
     }
+
 }

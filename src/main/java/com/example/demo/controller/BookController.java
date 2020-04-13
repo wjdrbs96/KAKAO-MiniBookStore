@@ -33,7 +33,7 @@ public class BookController {
     @GetMapping("book/all")
     public String BookMain(Model model) throws Exception {
         RestTemplate restTemplate = new RestTemplate();
-        String url = "https://dapi.kakao.com/v3/search/book?target=title&query=미움받을용기";
+        String url = "https://dapi.kakao.com/v3/search/book?target=title&query=자존감수업";
         String svcKey = "KakaoAK 856ec0be1a62b01007353103f2cbc64d";
 
         HttpHeaders headers = new HttpHeaders();
@@ -51,15 +51,17 @@ public class BookController {
 
         // 배열의 모든 아이템을 출력합니다.
         List<Book> list = new ArrayList<>();
-        for (int i = 0; i < 1; i++) {
+        for (int i = 0; i < bookList.length(); i++) {
             JSONObject book = bookList.getJSONObject(i);
             Book bo = new Book(book.getJSONArray("authors").getString(0), book.getString("contents"), book.getString("isbn"), book.getString("publisher"), book.getString("title"),
-                    book.getString("thumbnail"), book.getInt("price"), book.getJSONArray("translators").getString(0));
+                    book.getString("thumbnail"), book.getInt("price"));
 
             list.add(bo);
         }
+        System.out.println(list.get(0).getThumbnail());
+        System.out.println(list.get(0).getPrice());
+        System.out.println(list.get(0).getTitle());
         model.addAttribute("BookList", list);
-
         return "user/index";
     }
 }

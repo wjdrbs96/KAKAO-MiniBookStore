@@ -13,9 +13,8 @@ public class Book {
     private String title;
     private String thumbnail;
     private int price;
-    private String translators;
 
-    public Book(String authors, String contents, String isbn, String publisher, String title, String thumbnail, int price, String translators) {
+    public Book(String authors, String contents, String isbn, String publisher, String title, String thumbnail, int price) {
         this.authors = authors;
         this.contents = contents;
         this.isbn = isbn;
@@ -23,7 +22,6 @@ public class Book {
         this.title = title;
         this.thumbnail = thumbnail;
         this.price = price;
-        this.translators = translators;
     }
 
 

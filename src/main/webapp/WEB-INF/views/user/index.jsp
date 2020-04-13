@@ -36,15 +36,16 @@
 
     <!-- 전체 상품 목록 -->
     <div class="row text-center">
-        <c:forEach var="i" items="${ BookList }">
+        <c:forEach var="book" items="${ BookList}">
             <div class="col-sm">
                 <div class="card custom-card">
                     <a href="" class="product-font-color">
-                        <img src="${BookList.get(0).getThumbnail()}" alt="KAKAO" class="card-img-top">
+                        <img src="${book.thumbnail}" alt="KAKAO" class="card-img-top">
                         <div class="card-body">
-                            <h5 class="card-title">${BookList.get(0).getTitle()}</h5>
-                            <p>${BookList.get(0).getPrice()}원</p>
+                            <h5 class="card-title">${book.title}</h5>
+                            <p>${book.price}원</p>
                         </div>
+                        <p>${book.title}</p>
                     </a>
                 </div>
             </div>
@@ -56,9 +57,10 @@
     <div>
         <div class="text-center">
             <h4>used Spring Boot & JSP</h4>
-            <h4>contact : mingood92@gmail.com</h4>
-            <h3>&copy; 2018 MinGOOD & KAKAO IX. All Rights Reserved.</h3>
+            <h4>contact : wjdrbs966@naver.com</h4>
+            <h3>&copy; 2020 Wjdrbs-Dev & KAKAO IX. All Rights Reserved.</h3>
         </div>
     </div>
+</div>
 </body>
 </html>
