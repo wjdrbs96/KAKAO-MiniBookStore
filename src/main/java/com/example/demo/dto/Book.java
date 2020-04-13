@@ -1,7 +1,10 @@
 package com.example.demo.dto;
 
-import java.util.List;
+import lombok.Getter;
+import lombok.Setter;
 
+@Getter
+@Setter
 public class Book {
     private String authors;
     private String contents;
@@ -23,68 +26,5 @@ public class Book {
         this.translators = translators;
     }
 
-    public String getAuthors() {
-        return authors;
-    }
 
-    public void setAuthors(String authors) {
-        this.authors = authors;
-    }
-
-    public String getContents() {
-        return contents;
-    }
-
-    public void setContents(String contents) {
-        this.contents = contents;
-    }
-
-    public String getIsbn() {
-        return isbn;
-    }
-
-    public void setIsbn(String isbn) {
-        this.isbn = isbn;
-    }
-
-    public String getPublisher() {
-        return publisher;
-    }
-
-    public void setPublisher(String publisher) {
-        this.publisher = publisher;
-    }
-
-    public String getTitle() {
-        return title;
-    }
-
-    public void setTitle(String title) {
-        this.title = title;
-    }
-
-    public String getThumbnail() {
-        return thumbnail;
-    }
-
-    public void setThumbnail(String thumbnail) {
-        this.thumbnail = thumbnail;
-    }
-
-    public int getPrice() {
-        return price;
-    }
-
-    public void setPrice(int price) {
-        this.price = price;
-    }
-
-
-    public String getTranslators() {
-        return translators;
-    }
-
-    public void setTranslators(String translators) {
-        this.translators = translators;
-    }
 }

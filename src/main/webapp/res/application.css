@@ -1,0 +1,63 @@
+* {
+    font-family: 'Jua', sans-serif;
+    font-size: 12pt;
+}
+
+.navbar.sticky-top.navbar-expand-lg.navbar-light {
+    margin-top: 15px;
+    background-color: white;
+}
+
+.margin-auto {
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.div-margin-top {
+    margin-top: 10px;
+}
+
+.div-margin-bottom {
+    margin-bottom: 30px;
+}
+
+.logo-color {
+    color: #ffc107 !important;
+}
+
+.logo-font-size {
+    font-size: 24px;
+}
+
+.login-margin-top {
+    margin-top: 7%;
+}
+
+.login-input-width {
+    width: 25%;
+}
+
+.custom-card {
+    width: 18rem;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 10px;
+    display: block;
+}
+
+.product-detail-card {
+    width: 75%;
+    margin-left: auto;
+    margin-right: auto;
+    display: block;
+}
+
+.product-font-color {
+    color: black;
+}
+
+.product-num-input-width {
+    width: 30%;
+    margin-left: auto;
+    margin-right: auto;
+}

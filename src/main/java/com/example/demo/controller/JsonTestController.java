@@ -28,7 +28,7 @@ import java.util.List;
 @RestController
 public class JsonTestController {
 
-    @GetMapping("book/all")
+    @GetMapping("book/all1")
     public List<Book> BookMain() throws Exception {
         RestTemplate restTemplate = new RestTemplate();
         String url = "https://dapi.kakao.com/v3/search/book?target=title&query=미움받을용기";
@@ -69,7 +69,5 @@ public class JsonTestController {
         }
 
         return list;
-
     }
-
 }
