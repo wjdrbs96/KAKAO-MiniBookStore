@@ -1,9 +1,11 @@
 package com.example.demo.controller;
 
 import com.example.demo.dto.Book;
+import com.example.demo.mapper.BookMapper;
 import lombok.extern.slf4j.Slf4j;
 import org.json.JSONArray;
 import org.json.JSONObject;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpEntity;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpMethod;
@@ -12,7 +14,6 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.client.RestTemplate;
 
 import java.nio.charset.StandardCharsets;
@@ -30,10 +31,12 @@ import java.util.List;
 @Controller
 public class BookController {
 
+    @Autowired BookMapper bookMapper;
+
     @GetMapping("book/all")
-    public String BookMain(Model model) throws Exception {
+    public String BookAll(Model model) throws Exception {
         RestTemplate restTemplate = new RestTemplate();
-        String url = "https://dapi.kakao.com/v3/search/book?target=title&query=자존감수업";
+        String url = "https://dapi.kakao.com/v3/search/book?target=title&query=너의췌장을먹고싶어";
         String svcKey = "KakaoAK 856ec0be1a62b01007353103f2cbc64d";
 
         HttpHeaders headers = new HttpHeaders();
@@ -49,19 +52,14 @@ public class BookController {
         // 배열을 가져옵니다.
         JSONArray bookList = jsonObject.getJSONArray("documents");
 
-        // 배열의 모든 아이템을 출력합니다.
-        List<Book> list = new ArrayList<>();
-        for (int i = 0; i < bookList.length(); i++) {
-            JSONObject book = bookList.getJSONObject(i);
-            Book bo = new Book(book.getJSONArray("authors").getString(0), book.getString("contents"), book.getString("isbn"), book.getString("publisher"), book.getString("title"),
-                    book.getString("thumbnail"), book.getInt("price"));
+        return "user/index";
+    }
 
-            list.add(bo);
-        }
-        System.out.println(list.get(0).getThumbnail());
-        System.out.println(list.get(0).getPrice());
-        System.out.println(list.get(0).getTitle());
+    @GetMapping("book/default")
+    public String BookDefault(Model model) {
+        List<Book> list = bookMapper.findALl();
         model.addAttribute("BookList", list);
+
         return "user/index";
     }
 }

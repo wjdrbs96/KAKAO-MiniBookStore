@@ -3,7 +3,7 @@
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
 <html>
 <head>
-    <title>Kakao IX - MinGOOD</title>
+    <title>Kakao IX - 상품정보</title>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
           integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
     <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
@@ -30,36 +30,50 @@
             <span class="navbar-toggler-icon"></span>
         </button>
 
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav mr-auto">
+
+                <li class="nav-item dropdown active">
+                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
+                       data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        My Menu
+                    </a>
+                    <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                        <a class="dropdown-item" href="/kakao/cart">장바구니</a>
+                        <a class="dropdown-item" href="/kakao/orders">구매내역</a>
+                    </div>
+                </li>
+            </ul>
+
+            <!-- ./ 현재 로그인 사용자 표시 -->
+        </div>
     </nav>
     <!-- ./ 메뉴바 -->
     <hr/>
 
-    <!-- 전체 상품 목록 -->
-    <div class="row text-center">
-        <c:forEach var="book" items="${ BookList}">
-            <div class="col-sm">
-                <div class="card custom-card">
-                    <a href="" class="product-font-color">
-                        <img src="${book.url}" alt="KAKAO" class="card-img-top">
-                    </a>
-                </div>
-                <div class="card-body">
-                    <h5 class="card-title">${book.title}</h5>
-                    <p>${book.price}원</p>
-                </div>
-            </div>
-        </c:forEach>
-    </div>
-    <!-- ./ 전체 상품 목록 -->
-
-    <hr/>
+    <!-- 개별 상품 -->
     <div>
-        <div class="text-center">
-            <h4>used Spring Boot & JSP</h4>
-            <h4>contact : wjdrbs966@naver.com</h4>
-            <h3>&copy; 2020 Wjdrbs-Dev & KAKAO IX. All Rights Reserved.</h3>
-        </div>
+        <h4>${ product.productName }</h4>
+        <img src="${ product.imgUrl }" class="product-detail-card text-center">
     </div>
+    <hr/>
+    <div class="row text-center">
+        <div class="col"></div>
+        <div class="col-6">
+            <form:form action="/kakao/product/cart" method="post">
+                <input class="form-control text-center" id="productId" name="productId"
+                       value="${ product.id }" hidden>
+                <h5>개당 ${ product.productPrice } 원</h5>
+                <div class="form-group product-num-input-width">
+                    <input class="form-control text-center" id="number" name="number"
+                           placeholder="개수를 입력하세요.">
+                </div>
+                <button class="btn btn-success" type="submit">장바구니 추가</button>
+            </form:form>
+        </div>
+        <div class="col"></div>
+    </div>
+    <!-- ./ 개별 상품 -->
 </div>
 </body>
 </html>

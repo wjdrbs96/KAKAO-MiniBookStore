@@ -18,10 +18,6 @@ public class GuestController {
         return "guest/login";
     }
 
-    @GetMapping("test")
-    public String test() {
-        return "user/index";
-    }
 
     /*@PostMapping("login")
     public String login(@RequestParam("loginId") String loginId,

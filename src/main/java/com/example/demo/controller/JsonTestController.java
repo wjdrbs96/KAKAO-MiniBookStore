@@ -1,5 +1,6 @@
 package com.example.demo.controller;
 
+/*
 import com.example.demo.dto.Book;
 import lombok.extern.slf4j.Slf4j;
 import org.json.JSONArray;
@@ -18,12 +19,14 @@ import java.nio.charset.StandardCharsets;
 import java.util.ArrayList;
 import java.util.List;
 
+*/
 /**
  * 설명 : XXXXXXXXXXX
  *
  * @author Groot(조민국) / dev.mingood@sk.com
  * @since 2020. 04. 12
- */
+ *//*
+
 @Slf4j
 @SuppressWarnings("DuplicatedCode")
 @RestController
@@ -53,22 +56,29 @@ public class JsonTestController {
         log.info("### bookList {}", bookList);
 
 
-        // 배열의 모든 아이템을 출력합니다.
+        */
+/*//*
+/ 배열의 모든 아이템을 출력합니다.
         List<Book> list = new ArrayList<>();
         for (int i = 0; i < 2; i++) {
             JSONObject book = bookList.getJSONObject(i);
             Book bo = new Book(book.getJSONArray("authors").getString(0), book.getString("contents"), book.getString("isbn"), book.getString("publisher"), book.getString("title"),
                                book.getString("thumbnail"), book.getInt("price"));
-            /*String title = book.getString("title");
-            System.out.println("title(" + i + "): " + title);*/
+            *//*
+*/
+/*String title = book.getString("title");
+            System.out.println("title(" + i + "): " + title);*//*
+*/
+/*
             System.out.println(bo.getAuthors());
             System.out.println(bo.getContents());
             System.out.println(bo.getPrice());
             System.out.println();
             list.add(bo);
-        }
+        }*//*
+
 
         return list;
     }
 
-}
+}*/
