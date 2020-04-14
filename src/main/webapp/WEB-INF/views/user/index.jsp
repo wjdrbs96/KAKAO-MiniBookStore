@@ -3,7 +3,7 @@
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
 <html>
 <head>
-    <title>Kakao IX - MinGOOD</title>
+    <title>Kakao IX</title>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
           integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
     <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
@@ -47,7 +47,7 @@
         <c:forEach var="book" items="${ BookList}">
             <div class="col-sm">
                 <div class="card custom-card">
-                    <a href="" class="product-font-color">
+                    <a href="http://localhost:8080/book/detail?isbn=${book.isbn}" class="product-font-color">
                         <img src="${book.url}" alt="KAKAO" class="card-img-top">
                     </a>
                 </div>

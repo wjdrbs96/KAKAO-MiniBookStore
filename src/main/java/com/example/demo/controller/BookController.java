@@ -60,8 +60,6 @@ public class BookController {
 
         ResponseEntity<String> response = restTemplate.exchange(url, HttpMethod.GET, new HttpEntity<>(headers), String.class);
 
-        // 비교 START
-        JSONObject jsonObject1 = new JSONObject(response);
         JSONObject jsonObject = new JSONObject(response.getBody());
 
         // 배열을 가져옵니다.
@@ -88,5 +86,34 @@ public class BookController {
         model.addAttribute("BookList", list);
 
         return "user/index";
+    }
+
+    @GetMapping("book/detail")
+    public String getBook(Model model,
+                          @RequestParam("isbn") String isbn) {
+        String[] fisbn = isbn.split(" ");
+        String url = "https://dapi.kakao.com/v3/search/book?target=isbn&query=" + fisbn[0];
+
+        RestTemplate restTemplate = new RestTemplate();
+        String svcKey = "KakaoAK 856ec0be1a62b01007353103f2cbc64d";
+
+        HttpHeaders headers = new HttpHeaders();
+        headers.setContentType(new MediaType("application","json", StandardCharsets.UTF_8));
+        headers.set("Authorization", svcKey);
+
+        ResponseEntity<String> response = restTemplate.exchange(url, HttpMethod.GET, new HttpEntity<>(headers), String.class);
+
+        JSONObject jsonObject = new JSONObject(response.getBody());
+
+        // 배열을 가져옵니다.
+        JSONArray bookList = jsonObject.getJSONArray("documents");
+        for (int i = 0; i < bookList.length(); i++) {
+            JSONObject book = bookList.getJSONObject(i);
+            Book bo = new Book(book.getString("isbn"), book.getJSONArray("authors").getString(0), book.getString("contents"), book.getString("publisher"), book.getString("title"),
+                    book.getInt("price"), book.getString("thumbnail"));
+            model.addAttribute("Book", bo);
+        }
+
+        return "user/bookDetail";
     }
 }

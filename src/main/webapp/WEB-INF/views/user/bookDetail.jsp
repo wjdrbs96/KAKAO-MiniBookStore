@@ -24,7 +24,7 @@
 <div class="container div-margin-bottom">
     <!-- 메뉴바 -->
     <nav class="navbar sticky-top navbar-expand-lg navbar-light">
-        <a class="navbar-brand mb-0 h1 logo-color logo-font-size" href="/">KAKAO IX</a>
+        <a class="navbar-brand mb-0 h1 logo-color logo-font-size" href="http://localhost:8080/book/default">KAKAO IX</a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
                 aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
@@ -53,17 +53,15 @@
 
     <!-- 개별 상품 -->
     <div>
-        <h4>${ product.productName }</h4>
-        <img src="${ product.imgUrl }" class="product-detail-card text-center">
+        <h4>${ Book.title }</h4>
+        <img src="${ Book.url }" class="product-detail-card text-center">
     </div>
     <hr/>
     <div class="row text-center">
         <div class="col"></div>
         <div class="col-6">
-            <form:form action="/kakao/product/cart" method="post">
-                <input class="form-control text-center" id="productId" name="productId"
-                       value="${ product.id }" hidden>
-                <h5>개당 ${ product.productPrice } 원</h5>
+            <form:form action="" method="post">
+                <h5>개당 ${ Book.price } 원</h5>
                 <div class="form-group product-num-input-width">
                     <input class="form-control text-center" id="number" name="number"
                            placeholder="개수를 입력하세요.">
