@@ -29,7 +29,8 @@
                 <a class="navbar-brand mb-0 h1 logo-color logo-font-size" href="http://localhost:8080/book/default">KAKAO IX</a>
                 <select name="select" class="form-control">
                     <option value="title"}>제목</option>
-                    <option value="nickname">저자</option>
+                    <option value="authors">저자</option>
+                    <option value="isbn">isbn</option>
                 </select>
                 <input type="text" size=20 class="form-control" name="search"  placeholder="검색" >
                 <button type="submit" class="navbar-brand mb-0 h1 logo-color logo-font-size">Q</button>
@@ -52,6 +53,7 @@
                 </div>
                 <div class="card-body">
                     <h5 class="card-title">${book.title}</h5>
+                    <p>${book.authors}</p>
                     <p>${book.price}원</p>
                 </div>
             </div>

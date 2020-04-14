@@ -40,8 +40,18 @@ public class BookController {
                           @RequestParam("select") String select,
                           @RequestParam("search") String search) throws Exception {
 
+        String url = "";
+        if (select.equals("title")) {
+            url = "https://dapi.kakao.com/v3/search/book?target=title&query=" + search;
+        }
+        else if (select.equals("authors")) {
+            url = "https://dapi.kakao.com/v3/search/book?target=person&query=" + search;
+        }
+        else if (select.equals("isbn")) {
+            url = "https://dapi.kakao.com/v3/search/book?target=isbn&query=" + search;
+        }
+
         RestTemplate restTemplate = new RestTemplate();
-        String url = "https://dapi.kakao.com/v3/search/book?target=title&query=" + search;
         String svcKey = "KakaoAK 856ec0be1a62b01007353103f2cbc64d";
 
         HttpHeaders headers = new HttpHeaders();
