@@ -68,8 +68,6 @@
                 </exclusion>
             </exclusions>
         </dependency>
-        <!-- 이거 어떻게 추가 한거임 ? -->
-        <!--처음에 저거 코드 복붙하니까 add 라이브러리? 이런거 뜨길래 엔터 쳤던거 같아요-->
         <!-- https://mvnrepository.com/artifact/org.json/json -->
         <dependency>
             <groupId>org.json</groupId>

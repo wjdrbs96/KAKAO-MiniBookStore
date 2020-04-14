@@ -60,7 +60,7 @@
     <div class="row text-center">
         <div class="col"></div>
         <div class="col-6">
-            <form:form action="" method="post">
+            <form:form action="http://localhost:8080/cart/add?isbn=${Book.isbn}" method="post">
                 <h5>개당 ${ Book.price } 원</h5>
                 <div class="form-group product-num-input-width">
                     <input class="form-control text-center" id="number" name="number"

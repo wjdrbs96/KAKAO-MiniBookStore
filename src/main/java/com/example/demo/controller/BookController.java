@@ -74,7 +74,6 @@ public class BookController {
             list.add(bo);
         }
 
-
         model.addAttribute("BookList", list);
 
         return "user/index";

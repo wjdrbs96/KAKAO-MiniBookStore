@@ -6,14 +6,14 @@ import lombok.Setter;
 @Getter
 @Setter
 public class Book {
-    int bookId;
+    private int bookId;
     private String isbn;
     private String authors;
     private String contents;
     private String publisher;
     private String title;
     private int price;
-    String url;
+    private String url;
 
     public Book(String isbn, String authors, String contents, String publisher, String title, int price, String url) {
         this.isbn = isbn;
