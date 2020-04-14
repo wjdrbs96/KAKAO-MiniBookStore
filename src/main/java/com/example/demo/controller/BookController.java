@@ -14,6 +14,8 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.client.RestTemplate;
 
 import java.nio.charset.StandardCharsets;
@@ -33,10 +35,11 @@ public class BookController {
 
     @Autowired BookMapper bookMapper;
 
-    @GetMapping("book/all")
-    public String BookAll(Model model) throws Exception {
+    @PostMapping("book/all")
+    public String BookAll(Model model,
+                          @RequestParam("search") String search) throws Exception {
         RestTemplate restTemplate = new RestTemplate();
-        String url = "https://dapi.kakao.com/v3/search/book?target=title&query=너의췌장을먹고싶어";
+        String url = "https://dapi.kakao.com/v3/search/book?target=title&query=" + search;
         String svcKey = "KakaoAK 856ec0be1a62b01007353103f2cbc64d";
 
         HttpHeaders headers = new HttpHeaders();
@@ -51,6 +54,18 @@ public class BookController {
 
         // 배열을 가져옵니다.
         JSONArray bookList = jsonObject.getJSONArray("documents");
+
+        List<Book> list = new ArrayList<>();
+        for (int i = 0; i < bookList.length(); i++) {
+            JSONObject book = bookList.getJSONObject(i);
+            Book bo = new Book(book.getString("isbn"), book.getJSONArray("authors").getString(0), book.getString("contents"), book.getString("publisher"), book.getString("title"),
+                    book.getInt("price"), book.getString("thumbnail"));
+
+            list.add(bo);
+        }
+
+
+        model.addAttribute("BookList", list);
 
         return "user/index";
     }

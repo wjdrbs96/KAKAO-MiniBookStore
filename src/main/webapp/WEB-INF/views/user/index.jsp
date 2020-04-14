@@ -24,15 +24,22 @@
 <div class="container div-margin-bottom">
     <!-- 메뉴바 -->
     <nav class="navbar sticky-top navbar-expand-lg navbar-light">
-        <a class="navbar-brand mb-0 h1 logo-color logo-font-size" href="/">KAKAO IX</a>
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
-                aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-        </button>
+        <form action="http://localhost:8080/book/all" method="post" class="form-inline">
+            <div id="margin" class="form-group">
+                <a class="navbar-brand mb-0 h1 logo-color logo-font-size" href="http://localhost:8080/book/default">KAKAO IX</a>
+                <select name="select" class="form-control">
+                    <option value="title"}>제목</option>
+                    <option value="nickname">작성자</option>
+                </select>
+                <input type="text" size=20 class="form-control" name="search"  placeholder="검색" >
+                <button type="submit" class="navbar-brand mb-0 h1 logo-color logo-font-size">Q</button>
+            </div>
+        </form>
 
     </nav>
     <!-- ./ 메뉴바 -->
     <hr/>
+
 
     <!-- 전체 상품 목록 -->
     <div class="row text-center">
