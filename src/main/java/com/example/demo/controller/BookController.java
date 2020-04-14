@@ -37,7 +37,9 @@ public class BookController {
 
     @PostMapping("book/all")
     public String BookAll(Model model,
+                          @RequestParam("select") String select,
                           @RequestParam("search") String search) throws Exception {
+
         RestTemplate restTemplate = new RestTemplate();
         String url = "https://dapi.kakao.com/v3/search/book?target=title&query=" + search;
         String svcKey = "KakaoAK 856ec0be1a62b01007353103f2cbc64d";

@@ -29,7 +29,7 @@
                 <a class="navbar-brand mb-0 h1 logo-color logo-font-size" href="http://localhost:8080/book/default">KAKAO IX</a>
                 <select name="select" class="form-control">
                     <option value="title"}>제목</option>
-                    <option value="nickname">작성자</option>
+                    <option value="nickname">저자</option>
                 </select>
                 <input type="text" size=20 class="form-control" name="search"  placeholder="검색" >
                 <button type="submit" class="navbar-brand mb-0 h1 logo-color logo-font-size">Q</button>
