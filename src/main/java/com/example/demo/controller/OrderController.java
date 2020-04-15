@@ -29,7 +29,7 @@ public class OrderController {
         return "user/cart";
     }
 
-    @PostMapping("order/cal")
+    @GetMapping("order/cal")
     public String orderCalculate(Model model) {
         List<BookCart> orderList = orderMapper.findAll();
         int sum = 0;

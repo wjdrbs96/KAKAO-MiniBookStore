@@ -45,7 +45,7 @@
                         </a>
                         <div class="dropdown-menu" aria-labelledby="navbarDropdown">
                             <a class="dropdown-item" href="http://localhost:8080/cart/list">장바구니</a>
-                            <a class="dropdown-item" href="/kakao/orders">구매내역</a>
+                            <a class="dropdown-item" href="http://localhost:8080/order/cal">구매내역</a>
                         </div>
                     </li>
             </ul>
@@ -90,7 +90,7 @@
             </table>
             <div class="float-right">
                 <a href="javascript:window.history.back()" class="btn btn-info">뒤로가기</a>
-                <button class="btn btn-info" type="submit">구매하기</button>
+                <a class="dropdown-item" href="http://localhost:8080/cart/list">구매하기</a>
             </div>
         </form:form>
     </div>

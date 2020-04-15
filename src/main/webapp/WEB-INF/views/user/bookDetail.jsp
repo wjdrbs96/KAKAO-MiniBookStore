@@ -39,8 +39,8 @@
                         My Menu
                     </a>
                     <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                        <a class="dropdown-item" href="/kakao/cart">장바구니</a>
-                        <a class="dropdown-item" href="/kakao/orders">구매내역</a>
+                        <a class="dropdown-item" href="http://localhost:8080/cart/list">장바구니</a>
+                        <a class="dropdown-item" href="http://localhost:8080/order/cal">구매내역</a>
                     </div>
                 </li>
             </ul>
