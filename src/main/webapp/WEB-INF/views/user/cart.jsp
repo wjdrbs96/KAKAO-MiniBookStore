@@ -61,7 +61,7 @@
     <!-- 장바구니 목록 -->
     <div class="table-responsive">
         <h3>나의 장바구니</h3>
-        <form:form action="http://localhost:8080/order/cal" method="post">
+        <form:form action="http://localhost:8080/order/cal" method="GET">
             <table class="table table-hover table-bordered">
                 <thead class="thead-light">
                 <tr>
@@ -90,7 +90,7 @@
             </table>
             <div class="float-right">
                 <a href="javascript:window.history.back()" class="btn btn-info">뒤로가기</a>
-                <a class="dropdown-item" href="http://localhost:8080/cart/list">구매하기</a>
+                <button class="btn btn-info" type="submit">구매하기</button>
             </div>
         </form:form>
     </div>
