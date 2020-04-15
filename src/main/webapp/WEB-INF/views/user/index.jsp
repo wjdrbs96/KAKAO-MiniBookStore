@@ -34,13 +34,18 @@
                 </select>
                 <input type="text" size=20 class="form-control" name="search"  placeholder="검색" >
                 <button type="submit" class="navbar-brand mb-0 h1 logo-color logo-font-size">Q</button>
+                <a href="http://localhost:8080/cart/list">
+                    <div class="margin-tag">
+                        장바구니
+                    </div>
+                </a>
             </div>
+
         </form>
 
     </nav>
     <!-- ./ 메뉴바 -->
     <hr/>
-
 
     <!-- 전체 상품 목록 -->
     <div class="row text-center">

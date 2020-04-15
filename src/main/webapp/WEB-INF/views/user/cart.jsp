@@ -16,7 +16,6 @@
             integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
             crossorigin="anonymous"></script>
 
-    <!-- font -->
     <link href="https://fonts.googleapis.com/css?family=Jua" rel="stylesheet">
     <link href="/res/application.css" rel="stylesheet">
 </head>
@@ -24,7 +23,7 @@
 <div class="container div-margin-bottom">
     <!-- 메뉴바 -->
     <nav class="navbar sticky-top navbar-expand-lg navbar-light">
-        <a class="navbar-brand mb-0 h1 logo-color logo-font-size" href="/">KAKAO IX</a>
+        <a class="navbar-brand mb-0 h1 logo-color logo-font-size" href="http://localhost:8080/book/default">KAKAO IX</a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
                 aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
@@ -79,9 +78,9 @@
                         <td><h3>${ cart.title }</h3></td>
                         <td><h3>${ cart.number }</h3></td>
                         <td><h3>${ cart.price}</h3></td>
-                        <td><h3>${ cart.Price * cart.number }</h3></td>
+                        <td><h3>${ cart.price * cart.number }</h3></td>
                         <td>
-                            <a href="" class="btn-sm btn-danger">X</a>
+                            <a href="http://localhost:8080/cart/delete?cartId=${cart.cartId}" class="btn-sm btn-danger">X</a>
                         </td>
                     </tr>
                 </c:forEach>

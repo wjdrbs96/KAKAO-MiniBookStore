@@ -4,14 +4,19 @@
 
 <mapper namespace="com.example.demo.mapper.OrderMapper">
 
-    <insert id="BookInsert">>
+    <insert id="BookInsert">
         insert into bookcart (isbn, title, price, url, number)
         values(#{isbn}, #{title}, #{price}, #{url}, #{number})
     </insert>
 
-    <select id="findALl" resultType="Order">
+    <select id="findAll" resultType="BookCart">
         select *
-        from bookcart;
+        from bookcart
     </select>
+
+    <delete id="BookDelete">
+        delete from bookcart
+        where cartId = #{cartId}
+    </delete>
 
 </mapper>

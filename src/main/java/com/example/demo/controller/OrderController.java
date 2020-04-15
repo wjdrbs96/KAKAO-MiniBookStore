@@ -1,8 +1,6 @@
 package com.example.demo.controller;
 
-import com.example.demo.dto.Book;
-import com.example.demo.dto.Order;
-import com.example.demo.mapper.BookMapper;
+import com.example.demo.dto.BookCart;
 import com.example.demo.mapper.OrderMapper;
 import org.json.JSONArray;
 import org.json.JSONObject;
@@ -10,6 +8,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.*;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.client.RestTemplate;
@@ -21,6 +20,14 @@ import java.util.List;
 public class OrderController {
 
     @Autowired OrderMapper orderMapper;
+
+
+    @GetMapping("cart/list")
+    public String cartView(Model model) {
+        List<BookCart> orderList = orderMapper.findAll();
+        model.addAttribute("orderList", orderList);
+        return "user/cart";
+    }
 
     @PostMapping("cart/add")
     public String cartAdd(Model model,
@@ -44,16 +51,17 @@ public class OrderController {
         // 배열을 가져옵니다.
         JSONArray bookList = jsonObject.getJSONArray("documents");
         JSONObject book = bookList.getJSONObject(0);
-        System.out.println(fisbn[0]);
-        System.out.println(book.getString("title"));
-        System.out.println(book.getInt("price"));
-        System.out.println(book.getString("thumbnail"));
-        System.out.println(number);
         orderMapper.BookInsert(fisbn[0], book.getString("title"), book.getInt("price"), book.getString("thumbnail"), number);
 
-        List<Order> orderList = orderMapper.findAll();
+        List<BookCart> orderList = orderMapper.findAll();
         model.addAttribute("orderList", orderList);
         return "user/cart";
+    }
+
+    @GetMapping("cart/delete")
+    public String cartDelete(@RequestParam("cartId") int cartId) {
+        orderMapper.BookDelete(cartId);
+        return "redirect:/cart/list";
     }
 
 }

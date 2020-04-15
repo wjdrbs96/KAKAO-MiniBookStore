@@ -112,7 +112,6 @@ public class BookController {
                     book.getInt("price"), book.getString("thumbnail"));
             model.addAttribute("Book", bo);
         }
-
         return "user/bookDetail";
     }
 }
