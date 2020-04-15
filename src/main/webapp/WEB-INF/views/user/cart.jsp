@@ -87,6 +87,7 @@
                 </tbody>
             </table>
             <div class="float-right">
+                <a href="javascript:window.history.back()" class="btn btn-info">뒤로가기</a>
                 <button class="btn btn-info" type="submit">구매하기</button>
             </div>
         </form:form>

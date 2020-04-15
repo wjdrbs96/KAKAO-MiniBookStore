@@ -67,6 +67,7 @@
                            placeholder="개수를 입력하세요.">
                 </div>
                 <button class="btn btn-success" type="submit">장바구니 추가</button>
+                <a href="javascript:window.history.back()" class="btn btn-info">뒤로가기</a>
             </form:form>
         </div>
         <div class="col"></div>
