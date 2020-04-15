@@ -65,6 +65,8 @@ public class BookController {
         // 배열을 가져옵니다.
         JSONArray bookList = jsonObject.getJSONArray("documents");
 
+        System.out.println(bookList.length());
+
         List<Book> list = new ArrayList<>();
         for (int i = 0; i < bookList.length(); i++) {
             JSONObject book = bookList.getJSONObject(i);

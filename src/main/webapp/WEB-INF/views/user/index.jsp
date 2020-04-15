@@ -24,28 +24,37 @@
 <div class="container div-margin-bottom">
     <!-- 메뉴바 -->
     <nav class="navbar sticky-top navbar-expand-lg navbar-light">
-        <form action="http://localhost:8080/book/all" method="post" class="form-inline">
-            <div id="margin" class="form-group">
-                <a class="navbar-brand mb-0 h1 logo-color logo-font-size" href="http://localhost:8080/book/default">KAKAO IX</a>
-                <select name="select" class="form-control">
-                    <option value="title"}>제목</option>
-                    <option value="authors">저자</option>
-                    <option value="isbn">isbn</option>
-                </select>
-                <input type="text" size=20 class="form-control" name="search"  placeholder="검색" >
-                <button type="submit" class="navbar-brand mb-0 h1 logo-color logo-font-size">Q</button>
-                <a href="http://localhost:8080/cart/list">
-                    <div class="margin-tag">
-                        장바구니
-                    </div>
-                </a>
-            </div>
-
-        </form>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav mr-auto">
+                <li class="nav-item">
+                    <a class="navbar-brand mb-0 h1 logo-color logo-font-size" href="http://localhost:8080/book/default">KAKAO IX</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="http://localhost:8080/cart/list">login</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="http://localhost:8080/cart/list">logout</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="http://localhost:8080/cart/list">장바구니</a>
+                </li>
+            </ul>
+        </div>
 
     </nav>
     <!-- ./ 메뉴바 -->
-    <hr/>
+    <form action="http://localhost:8080/book/all" method="post" class="form-inline">
+        <div id="margin" class="form-group">
+            <select name="select" class="form-control">
+                <option value="title"}>제목</option>
+                <option value="authors">저자</option>
+                <option value="isbn">isbn</option>
+            </select>
+            <input type="text" size=20 class="form-control" name="search"  placeholder="검색" >
+            <button type="submit" class="navbar-brand mb-0 h1 logo-color logo-font-size">Q</button>
+        </div>
+
+    </form>
 
     <!-- 전체 상품 목록 -->
     <div class="row text-center">

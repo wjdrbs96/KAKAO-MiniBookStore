@@ -33,7 +33,9 @@
             <ul class="navbar-nav mr-auto">
                 <li class="nav-item">
                         <a class="nav-link" href="/login">Login</a>
-                        <a class="nav-link" href="/user/logout_processing">Logout</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/user/logout_processing">Logout</a>
                 </li>
                     <!-- MyPage Dropdown -->
                     <li class="nav-item dropdown active">
@@ -42,14 +44,14 @@
                             My Menu
                         </a>
                         <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                            <a class="dropdown-item" href="/kakao/cart">장바구니</a>
+                            <a class="dropdown-item" href="http://localhost:8080/cart/list">장바구니</a>
                             <a class="dropdown-item" href="/kakao/orders">구매내역</a>
                         </div>
                     </li>
             </ul>
             <!-- 현재 로그인 사용자 표시 -->
                 <div class="float-right div-margin-top">
-                    <h4>님 "hello, world!"</h4>
+                    <h4>고객님 "hello, world!"</h4>
                 </div>
             <!-- ./ 현재 로그인 사용자 표시 -->
         </div>
