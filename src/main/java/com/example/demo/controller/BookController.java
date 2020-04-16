@@ -65,8 +65,6 @@ public class BookController {
         // 배열을 가져옵니다.
         JSONArray bookList = jsonObject.getJSONArray("documents");
 
-        System.out.println(bookList.length());
-
         List<Book> list = new ArrayList<>();
         for (int i = 0; i < bookList.length(); i++) {
             JSONObject book = bookList.getJSONObject(i);
@@ -108,12 +106,10 @@ public class BookController {
 
         // 배열을 가져옵니다.
         JSONArray bookList = jsonObject.getJSONArray("documents");
-        for (int i = 0; i < bookList.length(); i++) {
-            JSONObject book = bookList.getJSONObject(i);
-            Book bo = new Book(book.getString("isbn"), book.getJSONArray("authors").getString(0), book.getString("contents"), book.getString("publisher"), book.getString("title"),
-                    book.getInt("price"), book.getString("thumbnail"));
-            model.addAttribute("Book", bo);
-        }
+        JSONObject book = bookList.getJSONObject(0);
+        Book bo = new Book(book.getString("isbn"), book.getJSONArray("authors").getString(0), book.getString("contents"), book.getString("publisher"), book.getString("title"),
+                book.getInt("price"), book.getString("thumbnail"));
+        model.addAttribute("Book", bo);
         return "user/bookDetail";
     }
 }

@@ -36,6 +36,9 @@
                     <a class="nav-link" href="http://localhost:8080/cart/list">logout</a>
                 </li>
                 <li class="nav-item">
+                    <a class="nav-link" href="http://localhost:8080/cart/list">베스트셀러</a>
+                </li>
+                <li class="nav-item">
                     <a class="nav-link" href="http://localhost:8080/cart/list">장바구니</a>
                 </li>
             </ul>
