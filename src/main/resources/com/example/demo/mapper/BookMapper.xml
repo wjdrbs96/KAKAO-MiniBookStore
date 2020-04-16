@@ -3,11 +3,16 @@
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
 <mapper namespace="com.example.demo.mapper.BookMapper">
-    <select id="findALl" resultType="Book">
+    <select id="findDefault" resultType="Book">
         select *
-        from book;
+        from book
+        limit 0, 10;
     </select>
 
-
+    <select id="findBestSeller" resultType="Book">
+        select *
+        from book
+        limit 10, 20;
+    </select>
 
 </mapper>

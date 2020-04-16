@@ -7,5 +7,6 @@ import java.util.List;
 
 @Mapper
 public interface BookMapper {
-    List<Book> findALl();
+    List<Book> findDefault();
+    List<Book> findBestSeller();
 }

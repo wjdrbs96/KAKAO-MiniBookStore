@@ -7,19 +7,11 @@ import lombok.extern.slf4j.Slf4j;
 import org.json.JSONArray;
 import org.json.JSONObject;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.HttpEntity;
-import org.springframework.http.HttpHeaders;
-import org.springframework.http.HttpMethod;
-import org.springframework.http.MediaType;
-import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.client.RestTemplate;
-
-import java.nio.charset.StandardCharsets;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -67,7 +59,7 @@ public class BookController {
 
     @GetMapping("book/default")
     public String BookDefault(Model model) {
-        List<Book> list = bookMapper.findALl();
+        List<Book> list = bookMapper.findDefault();
         model.addAttribute("BookList", list);
 
         return "user/index";
@@ -76,8 +68,8 @@ public class BookController {
     @GetMapping("book/detail")
     public String getBook(Model model,
                           @RequestParam("isbn") String isbn) {
-        String[] fisbn = isbn.split(" ");              // isbn => 공백을 가지고 2개가 오기 때문에 처음꺼를 쓰기 위함
-        String url = "https://dapi.kakao.com/v3/search/book?target=isbn&query=" + fisbn[0];
+        String[] firstIsbn = isbn.split(" ");              // isbn => 공백을 가지고 2개가 오기 때문에 처음꺼를 쓰기 위함
+        String url = "https://dapi.kakao.com/v3/search/book?target=isbn&query=" + firstIsbn[0];
 
         JSONObject jsonObject = KakaoAPI.KakaoAPITest(url);
 
@@ -89,5 +81,13 @@ public class BookController {
         model.addAttribute("Book", bo);
 
         return "user/bookDetail";
+    }
+
+    @GetMapping("best/book")
+    public String bestBook(Model model) {
+        List<Book> list = bookMapper.findBestSeller();
+        model.addAttribute("BookList", list);
+
+        return "user/bestSeller";
     }
 }
