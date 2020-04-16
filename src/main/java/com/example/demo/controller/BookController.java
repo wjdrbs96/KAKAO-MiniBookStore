@@ -22,12 +22,6 @@ import java.nio.charset.StandardCharsets;
 import java.util.ArrayList;
 import java.util.List;
 
-/**
- * 설명 : XXXXXXXXXXX
- *
- * @author Groot(조민국) / dev.mingood@sk.com
- * @since 2020. 04. 12
- */
 @Slf4j
 @SuppressWarnings("DuplicatedCode")
 @Controller
@@ -90,7 +84,7 @@ public class BookController {
     @GetMapping("book/detail")
     public String getBook(Model model,
                           @RequestParam("isbn") String isbn) {
-        String[] fisbn = isbn.split(" ");
+        String[] fisbn = isbn.split(" ");              // isbn => 공백을 가지고 2개가 오기 때문에 처음꺼를 쓰기 위함
         String url = "https://dapi.kakao.com/v3/search/book?target=isbn&query=" + fisbn[0];
 
         RestTemplate restTemplate = new RestTemplate();
