@@ -4,8 +4,6 @@
 
 ![Main](./img/MainPage.PNG)
 ---
-![Product](./img/BookDetail.PNG)
----
 ![Cart](./img/CartPage.PNG)
 ---
 ![Order](./img/OrderPage.PNG)
