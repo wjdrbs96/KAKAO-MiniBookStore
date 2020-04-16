@@ -2,13 +2,13 @@
 
 ## View
 
-![Main](./img/MainPage.png)
+![Main](./img/MainPage.PNG)
 ---
-![Product](./img/BookDetail.png)
+![Product](./img/BookDetail.PNG)
 ---
-![Cart](./img/CartPage.png)
+![Cart](./img/CartPage.PNG)
 ---
-![Order](./img/OrderPage.png)
+![Order](./img/OrderPage.PNG)
 
 
 ## Use
