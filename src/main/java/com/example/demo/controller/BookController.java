@@ -1,6 +1,7 @@
 package com.example.demo.controller;
 
 import com.example.demo.dto.Book;
+import com.example.demo.dto.KakaoAPI;
 import com.example.demo.mapper.BookMapper;
 import lombok.extern.slf4j.Slf4j;
 import org.json.JSONArray;
@@ -45,16 +46,7 @@ public class BookController {
             url = "https://dapi.kakao.com/v3/search/book?target=isbn&query=" + search;
         }
 
-        RestTemplate restTemplate = new RestTemplate();
-        String svcKey = "KakaoAK 856ec0be1a62b01007353103f2cbc64d";
-
-        HttpHeaders headers = new HttpHeaders();
-        headers.setContentType(new MediaType("application","json", StandardCharsets.UTF_8));
-        headers.set("Authorization", svcKey);
-
-        ResponseEntity<String> response = restTemplate.exchange(url, HttpMethod.GET, new HttpEntity<>(headers), String.class);
-
-        JSONObject jsonObject = new JSONObject(response.getBody());
+        JSONObject jsonObject = KakaoAPI.KakaoAPITest(url);
 
         // 배열을 가져옵니다.
         JSONArray bookList = jsonObject.getJSONArray("documents");
@@ -87,16 +79,7 @@ public class BookController {
         String[] fisbn = isbn.split(" ");              // isbn => 공백을 가지고 2개가 오기 때문에 처음꺼를 쓰기 위함
         String url = "https://dapi.kakao.com/v3/search/book?target=isbn&query=" + fisbn[0];
 
-        RestTemplate restTemplate = new RestTemplate();
-        String svcKey = "KakaoAK 856ec0be1a62b01007353103f2cbc64d";
-
-        HttpHeaders headers = new HttpHeaders();
-        headers.setContentType(new MediaType("application","json", StandardCharsets.UTF_8));
-        headers.set("Authorization", svcKey);
-
-        ResponseEntity<String> response = restTemplate.exchange(url, HttpMethod.GET, new HttpEntity<>(headers), String.class);
-
-        JSONObject jsonObject = new JSONObject(response.getBody());
+        JSONObject jsonObject = KakaoAPI.KakaoAPITest(url);
 
         // 배열을 가져옵니다.
         JSONArray bookList = jsonObject.getJSONArray("documents");
@@ -104,6 +87,7 @@ public class BookController {
         Book bo = new Book(book.getString("isbn"), book.getJSONArray("authors").getString(0), book.getString("contents"), book.getString("publisher"), book.getString("title"),
                 book.getInt("price"), book.getString("thumbnail"));
         model.addAttribute("Book", bo);
+
         return "user/bookDetail";
     }
 }
