@@ -39,8 +39,6 @@ public class BookController {
         }
 
         JSONObject jsonObject = KakaoAPI.KakaoAPITest(url);
-
-        // 배열을 가져옵니다.
         JSONArray bookList = jsonObject.getJSONArray("documents");
 
         List<Book> list = new ArrayList<>();
@@ -59,7 +57,7 @@ public class BookController {
 
     @GetMapping("book/default")
     public String BookDefault(Model model) {
-        List<Book> list = bookMapper.findDefault();
+        List<Book> list = bookMapper.findDefault();            // 처음에 디폴트 책 찾는 메소드
         model.addAttribute("BookList", list);
 
         return "user/index";
@@ -71,10 +69,9 @@ public class BookController {
         String[] firstIsbn = isbn.split(" ");              // isbn => 공백을 가지고 2개가 오기 때문에 처음꺼를 쓰기 위함
         String url = "https://dapi.kakao.com/v3/search/book?target=isbn&query=" + firstIsbn[0];
 
-        JSONObject jsonObject = KakaoAPI.KakaoAPITest(url);
-
-        // 배열을 가져옵니다.
+        JSONObject jsonObject = KakaoAPI.KakaoAPITest(url);        // 카카오 key 등록 후에 정보 객체로 받기
         JSONArray bookList = jsonObject.getJSONArray("documents");
+
         JSONObject book = bookList.getJSONObject(0);
         Book bo = new Book(book.getString("isbn"), book.getJSONArray("authors").getString(0), book.getString("contents"), book.getString("publisher"), book.getString("title"),
                 book.getInt("price"), book.getString("thumbnail"));
@@ -85,7 +82,7 @@ public class BookController {
 
     @GetMapping("best/book")
     public String bestBook(Model model) {
-        List<Book> list = bookMapper.findBestSeller();
+        List<Book> list = bookMapper.findBestSeller();     // 베스트 셀러 책 찾기 메소드
         model.addAttribute("BookList", list);
 
         return "user/bestSeller";

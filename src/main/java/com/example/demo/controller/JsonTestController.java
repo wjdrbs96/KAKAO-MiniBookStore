@@ -26,7 +26,7 @@ public class JsonTestController {
     @GetMapping("book/all1")
     public List<Book> BookMain() throws Exception {
         RestTemplate restTemplate = new RestTemplate();
-        String url = "https://dapi.kakao.com/v3/search/book?target=title&query=설민석의한국사대모험";
+        String url = "https://dapi.kakao.com/v3/search/book?target=title&query=메타인지학습법";
         String svcKey = "KakaoAK 856ec0be1a62b01007353103f2cbc64d";
 
         HttpHeaders headers = new HttpHeaders();
