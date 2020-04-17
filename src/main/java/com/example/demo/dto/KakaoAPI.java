@@ -3,7 +3,6 @@ package com.example.demo.dto;
 import org.json.JSONObject;
 import org.springframework.http.*;
 import org.springframework.web.client.RestTemplate;
-
 import java.nio.charset.StandardCharsets;
 
 public class KakaoAPI {
@@ -21,4 +20,5 @@ public class KakaoAPI {
 
         return jsonObject;
     }
+
 }

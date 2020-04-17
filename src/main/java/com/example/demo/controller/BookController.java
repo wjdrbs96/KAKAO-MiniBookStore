@@ -38,7 +38,7 @@ public class BookController {
             url = "https://dapi.kakao.com/v3/search/book?target=isbn&query=" + search;
         }
 
-        JSONObject jsonObject = KakaoAPI.KakaoAPITest(url);
+        JSONObject jsonObject = KakaoAPI.KakaoAPITest(url);                                 // API 받아오기 메소드로 묶음
         JSONArray bookList = jsonObject.getJSONArray("documents");
 
         List<Book> list = new ArrayList<>();
@@ -75,6 +75,7 @@ public class BookController {
         JSONObject book = bookList.getJSONObject(0);
         Book bo = new Book(book.getString("isbn"), book.getJSONArray("authors").getString(0), book.getString("contents"), book.getString("publisher"), book.getString("title"),
                 book.getInt("price"), book.getString("thumbnail"));
+
         model.addAttribute("Book", bo);
 
         return "user/bookDetail";

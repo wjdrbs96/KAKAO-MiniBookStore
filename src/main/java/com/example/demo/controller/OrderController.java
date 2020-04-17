@@ -33,9 +33,11 @@ public class OrderController {
     public String orderCalculate(Model model) {
         List<BookCart> orderList = orderMapper.findAll();
         int sum = 0;
+
         for (int i = 0; i < orderList.size(); ++i) {
             sum += (orderList.get(i).getPrice() * orderList.get(i).getNumber());
         }
+
         model.addAttribute("sum", sum);
         model.addAttribute("orderList", orderList);
 
