@@ -24,7 +24,7 @@ import java.util.List;
 public class JsonTestController {
 
     @GetMapping("book/all1")
-    public List<Book> BookMain() throws Exception {
+    public List<Book> BookMain() {
         RestTemplate restTemplate = new RestTemplate();
         String url = "https://dapi.kakao.com/v3/search/book?target=title&query=메타인지학습법";
         String svcKey = "KakaoAK 856ec0be1a62b01007353103f2cbc64d";
@@ -45,7 +45,6 @@ public class JsonTestController {
         // 배열을 가져옵니다.
         JSONArray bookList = jsonObject.getJSONArray("documents");
         log.info("### bookList {}", bookList);
-
 
         // 배열의 모든 아이템을 출력합니다.
         List<Book> list = new ArrayList<>();

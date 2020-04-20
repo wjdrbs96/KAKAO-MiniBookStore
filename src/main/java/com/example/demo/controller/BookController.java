@@ -22,6 +22,7 @@ public class BookController {
 
     @Autowired BookMapper bookMapper;
 
+
     @PostMapping("book/all")
     public String BookAll(Model model,
                           @RequestParam("select") String select,
