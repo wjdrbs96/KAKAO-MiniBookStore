@@ -28,18 +28,10 @@ public class BookController {
                           @RequestParam("select") String select,
                           @RequestParam("search") String search) throws Exception {
 
-        String url = "";
-        if (select.equals("title")) {
-            url = "https://dapi.kakao.com/v3/search/book?target=title&query=" + search;
-        }
-        else if (select.equals("authors")) {
-            url = "https://dapi.kakao.com/v3/search/book?target=person&query=" + search;
-        }
-        else if (select.equals("isbn")) {
-            url = "https://dapi.kakao.com/v3/search/book?target=isbn&query=" + search;
-        }
+        String url = "https://dapi.kakao.com/v3/search/book?target=%s&query=%s";
+        String requestUrl = String.format(url, select, search);
 
-        JSONObject jsonObject = KakaoAPI.KakaoAPITest(url);                                 // API 받아오기 메소드로 묶음
+        JSONObject jsonObject = KakaoAPI.KakaoAPITest(requestUrl);                                 // API 받아오기 메소드로 묶음
         JSONArray bookList = jsonObject.getJSONArray("documents");
 
         List<Book> list = new ArrayList<>();
@@ -88,5 +80,10 @@ public class BookController {
         model.addAttribute("BookList", list);
 
         return "user/bestSeller";
+    }
+
+    @GetMapping("/test")
+    public String test() {
+        return "user/test";
     }
 }

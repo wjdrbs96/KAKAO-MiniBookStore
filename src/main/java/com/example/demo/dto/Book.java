@@ -1,10 +1,10 @@
 package com.example.demo.dto;
 
-import lombok.Getter;
-import lombok.Setter;
+import lombok.AllArgsConstructor;
+import lombok.Data;
 
-@Getter
-@Setter
+@Data
+@AllArgsConstructor
 public class Book {
     private int bookId;
     private String isbn;
@@ -14,6 +14,10 @@ public class Book {
     private String title;
     private int price;
     private String url;
+
+    public Book() {
+
+    }
 
     public Book(String isbn, String authors, String contents, String publisher, String title, int price, String url) {
         this.isbn = isbn;
